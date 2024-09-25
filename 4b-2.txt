@@ -1,0 +1,35 @@
+4B
+# Import module 
+import pandas as pd 
+ 
+# Creating Dataframe 
+details = pd.DataFrame({ 
+ 'ID': [101, 102, 103, 104, 105, 
+  106, 107, 108, 109, 110], 
+ 'NAME': ['Jagroop', 'Praveen', 'Harjot', 
+   'Pooja', 'Rahul', 'Nikita', 
+   'Saurabh', 'Ayush', 'Dolly', "Mohit"], 
+ 'BRANCH': ['MCA', 'EEE', 'ISE', 'MECH', 'CSE', 
+   'ECE', 'MBA', 'AERO', 'MCA', 'CIVIL']}) 
+ 
+# Creating Dataframe 
+fees_status = pd.DataFrame( 
+ {'ID': [101, 102, 103, 104, 105, 
+   106, 107, 108, 109, 110], 
+ 'PENDING': ['5000', '250', 'NIL', 
+    '9000', '15000', 'NIL',
+    '4500', '1800', '250', 'NIL']}) 
+ 
+# Merging Dataframe 
+print(pd.merge(details, fees_status, on='ID')) 
+print("***********************************************")
+print (pd.concat([details, fees_status])) 
+print("***********************************************")
+# #diaplay non duplicate value 
+df = pd.DataFrame(fees_status) 
+
+non_duplicate = df[~df.duplicated('PENDING')]
+print(non_duplicate)
+print("***********************************************") 
+df_filtered1= df.query('ID>105')
+print(df_filtered1)
